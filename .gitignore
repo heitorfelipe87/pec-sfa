@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# VS Code
+.vscode/
+
+# Ambiente virtual
+.venv/
+
+# Logs
+*.log
+
+# Banco
+*.db
+
+# Sistema
+.DS_Store
+Thumbs.db
