@@ -1,1 +1,21 @@
-version: "3.9"
+services:
+  database:
+    image: postgres:17
+    container_name: pec-sfa-database
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: pec_sfa
+      POSTGRES_USER: pec_sfa
+      POSTGRES_PASSWORD: pec_sfa_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - pec_sfa_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pec_sfa -d pec_sfa"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pec_sfa_postgres_data:
