@@ -1,7 +1,7 @@
 """cria tabelas iniciais do modulo contratos
 
 Revision ID: 7039730c73c8
-Revises: 
+Revises:
 Create Date: 2026-07-14 22:54:54.443609
 
 """

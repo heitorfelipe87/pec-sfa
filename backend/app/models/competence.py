@@ -97,4 +97,4 @@ class Competence(Base):
         back_populates="competence",
         cascade="all, delete-orphan",
         order_by="CompetenceStep.ordem",
-    )  
+    )
