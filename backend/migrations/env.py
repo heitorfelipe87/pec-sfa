@@ -5,7 +5,14 @@ from sqlalchemy import engine_from_config, pool
 
 from app.core.config import settings
 from app.database.database import Base
-from app.models import Company, Contract, ContractAssignment, Person
+from app.models import (
+    Company,
+    Competence,
+    CompetenceStep,
+    Contract,
+    ContractAssignment,
+    Person,
+)
 
 
 config = context.config

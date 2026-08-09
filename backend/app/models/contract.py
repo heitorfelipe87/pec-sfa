@@ -109,3 +109,9 @@ class Contract(Base):
         back_populates="contract",
         cascade="all, delete-orphan",
     )
+
+    competences: Mapped[list["Competence"]] = relationship(
+        back_populates="contract",
+        cascade="all, delete-orphan",
+        order_by="Competence.ano, Competence.mes",
+    )
