@@ -4,15 +4,19 @@ services:
     container_name: pec-sfa-database
     restart: unless-stopped
     environment:
-      POSTGRES_DB: pec_sfa
-      POSTGRES_USER: pec_sfa
-      POSTGRES_PASSWORD: pec_sfa_dev
+      POSTGRES_DB: ${POSTGRES_DB:-pec_sfa}
+      POSTGRES_USER: ${POSTGRES_USER:-pec_sfa}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Defina POSTGRES_PASSWORD no arquivo .env da raiz}
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     volumes:
       - pec_sfa_postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U pec_sfa -d pec_sfa"]
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-pec_sfa} -d ${POSTGRES_DB:-pec_sfa}",
+        ]
       interval: 5s
       timeout: 5s
       retries: 10

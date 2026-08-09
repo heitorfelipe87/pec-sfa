@@ -30,4 +30,7 @@ backend/__pycache__/
 # Arquivos do VS Code
 .vscode/
 # Configurações locais e credenciais
+.env
+.env.*
+!.env.example
 backend/.env
